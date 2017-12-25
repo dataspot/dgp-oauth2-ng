@@ -10,4 +10,6 @@ assets/styles/*css.map
 *.tgz
 
 temp
-
+secret*
+traefik.crt
+traefik.key
