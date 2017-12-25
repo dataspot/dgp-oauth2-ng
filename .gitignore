@@ -11,5 +11,5 @@ assets/styles/*css.map
 
 temp
 secret*
-traefik.crt
-traefik.key
+*.crt
+*.key
