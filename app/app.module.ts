@@ -22,7 +22,7 @@ declare const process: any;
     AppComponent
   ],
   providers: [
-      provideAuthService('https://localhost:8001')
+      provideAuthService('https://next.obudget.org')
   ]
 })
 export class AppModule {
