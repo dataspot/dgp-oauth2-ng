@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from "@angular/http";
 
 import { AuthComponent } from './components/AuthComponent';
-import { getAuthServiceConfigProvider } from "./services";
+import { AuthService, getAuthServiceConfigProvider } from "./services";
 
 @NgModule({
   imports: [
@@ -17,7 +17,8 @@ import { getAuthServiceConfigProvider } from "./services";
     AuthComponent
   ],
   providers: [
-      getAuthServiceConfigProvider('https://next.obudget.org')
+    getAuthServiceConfigProvider('https://next.obudget.org'),
+    AuthService
   ]
 })
 export class AuthModule { }

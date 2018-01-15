@@ -5,7 +5,6 @@ import { AuthModule } from '../src';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
-import {AuthService} from "../src/services";
 
 declare const process: any;
 
@@ -20,9 +19,6 @@ declare const process: any;
   ],
   bootstrap: [
     AppComponent
-  ],
-  providers: [
-      AuthService
   ]
 })
 export class AppModule {
