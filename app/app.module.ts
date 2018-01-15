@@ -5,7 +5,7 @@ import { AuthModule } from '../src';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
-import {provideAuthService} from "../src/services";
+import {AuthService} from "../src/services";
 
 declare const process: any;
 
@@ -22,7 +22,7 @@ declare const process: any;
     AppComponent
   ],
   providers: [
-      provideAuthService('https://next.obudget.org')
+      AuthService
   ]
 })
 export class AppModule {
