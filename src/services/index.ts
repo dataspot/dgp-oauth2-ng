@@ -1,1 +1,1 @@
-export { AuthService, provideAuthService } from './auth'
+export { AuthService, getAuthServiceConfigProvider } from './auth'

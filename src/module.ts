@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from "@angular/http";
 
 import { AuthComponent } from './components/AuthComponent';
-import { provideAuthService } from "./services";
+import { AuthService, getAuthServiceConfigProvider } from "./services";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpModule
   ],
   declarations: [
-      AuthComponent
+    AuthComponent
   ],
   exports: [
-      AuthComponent
+    AuthComponent
+  ],
+  providers: [
+    getAuthServiceConfigProvider('https://next.obudget.org'),
+    AuthService
   ]
 })
 export class AuthModule { }

@@ -5,7 +5,6 @@ import { AuthModule } from '../src';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
-import {provideAuthService} from "../src/services";
 
 declare const process: any;
 
@@ -20,9 +19,6 @@ declare const process: any;
   ],
   bootstrap: [
     AppComponent
-  ],
-  providers: [
-      provideAuthService('https://localhost:8001')
   ]
 })
 export class AppModule {

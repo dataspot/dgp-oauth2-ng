@@ -7,8 +7,8 @@ import { AuthService } from '../services';
 @Component({
     selector: 'budgetkey-ng2-auth',
     template: `<div class="budgetkey-ng2-auth" #el>
-        <a *ngIf="!user || !user.authenticated" class="menu-item" (click)="login($event, user)">כניסה למערכת</a>
-        <span *ngIf="user && user.authenticated" class="menu-item">שלום {{ user.profile.name }} <a (click)="logout($event, user)">יציאה</a></span>
+        <a *ngIf="!user || !user.authenticated" class="menu-item" (click)="login($event, user)" href="#">כניסה למערכת</a>
+        <span *ngIf="user && user.authenticated" class="menu-item">שלום {{ user.profile.name }} <a (click)="logout($event, user)" href="#">יציאה</a></span>
     </div>`,
     styles: [`
 .budgetkey-ng2-auth {
