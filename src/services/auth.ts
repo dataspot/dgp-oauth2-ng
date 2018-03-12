@@ -81,7 +81,7 @@ export class AuthService {
         if (search.startsWith('?')) search = search.substring(1);
         let params = new URLSearchParams(search);
         if (params.has(this.jwtQueryParam)) params.delete(this.jwtQueryParam);
-        document.location.search = params.toString();
+        document.location.search = decodeURIComponent(params.toString());
     }
 
 }
