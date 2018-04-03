@@ -1,10 +1,10 @@
-import {Injectable, OpaqueToken, Inject} from '@angular/core';
+import {Injectable, InjectionToken, Inject} from '@angular/core';
 import * as _ from 'lodash';
 import * as Promise from 'bluebird';
 import { Http, URLSearchParams } from "@angular/http";
 import 'rxjs/add/operator/map'
 
-const AUTH_CONFIG_TOKEN = new OpaqueToken('Auth Config');
+const AUTH_CONFIG_TOKEN = new InjectionToken('Auth Config');
 
 export function getAuthServiceConfigProvider(authServerUrl:string, jwtLocalStorageKey='jwt', jwtQueryParam='jwt') {
     return {
