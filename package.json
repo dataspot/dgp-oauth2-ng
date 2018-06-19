@@ -1,16 +1,15 @@
 {
   "name": "budgetkey-ng2-auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
     "start": "webpack-dev-server",
     "watch": "tsc -p src -w",
-    "build:styles": "lessc --clean-css --source-map ./assets/styles/budgetkey-ng2-auth.less ./assets/styles/budgetkey-ng2-auth.css",
     "build:scripts": "tsc -p src",
     "prebuild": "rm -rf lib",
-    "build": "npm run build:scripts && npm run build:styles",
+    "build": "npm run build:scripts",
     "prepare": "npm run build",
     "install-into": "./install-into.sh"
   },

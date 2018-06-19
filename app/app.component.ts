@@ -4,22 +4,20 @@ declare const process: any;
 @Component({
   selector: 'my-app',
   template: `
-    <div id="budgetkeyng2authcontainer">
-        <budgetkey-ng2-auth #budgetkeyng2auth></budgetkey-ng2-auth>
+    <div>
+      <budgetkey-ng2-auth></budgetkey-ng2-auth>
     </div>
- `,
-  styles: [`
-    #budgetkeyng2authcontainer {
-        /*width: 1200px;*/
-        /*height: 600px;*/
-    }
-
-    /*:host >>> .centerpiece { */
-        /*stroke: lightgray;*/
-        /*stroke-width: 2;*/
-        /*fill: gray;*/
-     /*}*/
-  `]
+ `, styles: [
+   `::ng-deep body { direction: rtl; }
+   div {
+     height: 100%;
+     padding: 50px;
+     display: flex;
+     flex-flow: column;
+     align-items: flex-end;  
+   }
+`
+ ]
 })
 export class AppComponent {
 

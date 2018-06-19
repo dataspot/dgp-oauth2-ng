@@ -1,27 +1,34 @@
 import {Injectable, InjectionToken, Inject} from '@angular/core';
-import * as _ from 'lodash';
 import * as Promise from 'bluebird';
 import { Http, URLSearchParams } from "@angular/http";
 import 'rxjs/add/operator/map'
 
-const AUTH_CONFIG_TOKEN = new InjectionToken('Auth Config');
 
-export function getAuthServiceConfigProvider(authServerUrl:string, jwtLocalStorageKey='jwt', jwtQueryParam='jwt') {
+export const AUTH_CONFIG_TOKEN = new InjectionToken('Auth Config');
+
+
+export function getAuthServiceConfigProvider(authServerUrl:string, 
+                                             jwtLocalStorageKey='jwt', 
+                                             jwtQueryParam='jwt',
+                                             profilePagePath='/p/') {
     return {
         provide: AUTH_CONFIG_TOKEN,
         useValue: {
             "authServerUrl": authServerUrl,
             "jwtLocalStorageKey": jwtLocalStorageKey,
-            "jwtQueryParam": jwtQueryParam
+            "jwtQueryParam": jwtQueryParam,
+            "profilePagePath": profilePagePath
         }
     }
 }
+
 
 @Injectable()
 export class AuthService {
     private authServerUrl: string;
     private jwtLocalStorageKey: string;
     private jwtQueryParam: string;
+    private user: any;
 
     constructor(private http: Http, @Inject(AUTH_CONFIG_TOKEN) private authConfig: any) {
         this.authServerUrl = authConfig.authServerUrl;
@@ -40,7 +47,11 @@ export class AuthService {
         let jwt = params.get(this.jwtQueryParam);
         if (jwt) {
             // remove the jwt query param from the URL
-            history.replaceState(null, document.title, document.location.href.split("?")[0]);
+            params.delete(this.jwtQueryParam);
+            search = params.toString();
+            history.replaceState(null, 
+                                 document.title, 
+                                 document.location.href.split("?")[0] + '?' + search);
             return jwt;
         } else {
             return localStorage.getItem(this.jwtLocalStorageKey);
@@ -62,7 +73,14 @@ export class AuthService {
         localStorage.removeItem(this.jwtLocalStorageKey);
     }
 
-    check(next: any): PromiseLike<any> {
+    /**
+     * get the current logged in user (or null if n/a)
+     */
+    private getUser(): any {
+        return this.user;
+    }
+
+    check(next: string): PromiseLike<any> {
         return new Promise((resolve, reject) => {
             let jwt = this.getToken();
             if (jwt) {
@@ -71,17 +89,22 @@ export class AuthService {
             this.http
                 .get(this.authServerUrl + '/auth/check?jwt=' + (jwt ? jwt : '') + '&next=' + encodeURIComponent(next))
                 .map(res => res.json())
-                .subscribe(res => resolve(res));
+                .subscribe(res => {
+                    if (res && res.authenticated) {
+                        this.user = res;
+                    }
+                    resolve(res);
+                });
         });
     }
 
-    logout(): void {
+    logout(next?: string): PromiseLike<any> {
         this.deleteToken();
-        let search = document.location.search.trim();
-        if (search.startsWith('?')) search = search.substring(1);
-        let params = new URLSearchParams(search);
-        if (params.has(this.jwtQueryParam)) params.delete(this.jwtQueryParam);
-        document.location.search = decodeURIComponent(params.toString());
+        this.user = null;
+        if (next) {
+            return this.check(next);
+        } else {
+            return null;
+        }
     }
-
 }

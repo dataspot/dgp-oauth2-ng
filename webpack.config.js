@@ -29,7 +29,6 @@ module.exports = {
   entry: {
     'main': [
       './app/index.ts',
-      './assets/styles/budgetkey-ng2-auth.less'
     ]
   },
   output: {
