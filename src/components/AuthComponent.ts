@@ -7,13 +7,15 @@ import { AuthService,  AUTH_CONFIG_TOKEN} from '../services/auth';
 @Component({
     selector: 'budgetkey-ng2-auth',
     template: `
-        <span *ngIf="!user || !user.authenticated" 
-              class="logged-out" 
-              (click)="login()"
-        >התחברות</span>
-        <div *ngIf="user && user.authenticated"
-             class='logged-in'>
-             <div class='top-line'>
+        <div class='widget'>
+             <div *ngIf="!user || !user.authenticated" 
+                  class='top-line'>
+                <span class="login" 
+                      (click)="login()"
+                >התחברות</span>
+             </div>
+             <div *ngIf="user && user.authenticated"
+                  class='top-line'>
                 <div class='profile'>
                     <img width='100%' height='100%' [src]="user.profile.avatar_url">
                 </div>
@@ -26,7 +28,8 @@ import { AuthService,  AUTH_CONFIG_TOKEN} from '../services/auth';
                     </path>
                 </svg>
              </div>
-             <div class='menu'>
+             <div *ngIf="user && user.authenticated"
+                  class='menu'>
                 <span class='menu-line' (click)="profile()">התראות שמורות</span>
                 <span class='menu-line' (click)="profile()">פרופיל אישי</span>
                 <span class='menu-line' (click)="logout()">התנתקות</span>
@@ -34,30 +37,32 @@ import { AuthService,  AUTH_CONFIG_TOKEN} from '../services/auth';
         </div>
     `,
     styles: [`
-.logged-out, .logout {
+.widget {
+    position: relative;
+    width: 50px;
+    height: 40px;
+    font-weight: 300;
+}
+     
+.login {
     color: #BDBDBD;	
     font-family: "Abraham TRIAL";	
     font-size: 16px;
     cursor: pointer;
 }
 
-.logged-in {
-   position: relative;
-   width: 50px;
-   height: 40px;
-}
-
-.logged-in .top-line {
+.top-line {
     display: flex;
     align-items: center;
     flex-flow: row;
+    height: 100%;
  }
 
- .logged-in .top-line svg {
+ .top-line svg {
      margin-right: 4px;
  }
 
-.logged-in .profile { 
+.profile { 
     width: 30px;
     height: 30px;
     border: 1px solid #FF5A5F;
@@ -65,7 +70,7 @@ import { AuthService,  AUTH_CONFIG_TOKEN} from '../services/auth';
     overflow: hidden;
 }
 
-.logged-in .menu {
+.menu {
     position: absolute;
     top: 40px;
     right: -50px;
@@ -79,7 +84,7 @@ import { AuthService,  AUTH_CONFIG_TOKEN} from '../services/auth';
     display: none;
 }
 
-.logged-in:hover .menu {
+.widget:hover .menu {
     display: flex;
 }
 
