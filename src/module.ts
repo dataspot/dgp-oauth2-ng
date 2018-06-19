@@ -11,10 +11,10 @@ import { AuthService, getAuthServiceConfigProvider } from "./services";
     HttpModule
   ],
   declarations: [
-    AuthComponent
+    AuthComponent,
   ],
   exports: [
-    AuthComponent
+    AuthComponent,
   ],
   providers: [
     getAuthServiceConfigProvider('https://next.obudget.org'),
