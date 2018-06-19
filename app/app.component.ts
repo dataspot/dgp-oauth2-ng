@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-declare const process: any;
+import { AuthService } from '../src';
 
 @Component({
   selector: 'my-app',
@@ -21,6 +21,13 @@ declare const process: any;
 })
 export class AppComponent {
 
-  constructor() {
+  constructor(private auth: AuthService) {
+  }
+
+  ngOnInit() {
+    this.auth.permission('moshe')
+      .subscribe((permissions) => {
+        console.log('PERMISSIONS', permissions);
+      });
   }
 }

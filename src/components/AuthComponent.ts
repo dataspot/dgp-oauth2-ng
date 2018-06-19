@@ -2,6 +2,7 @@ import {
   Component, Inject
 } from '@angular/core';
 import { AuthService,  AUTH_CONFIG_TOKEN} from '../services/auth';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -113,10 +114,9 @@ export class AuthComponent {
         this.setUser(this.auth.check(document.location.href));
     }
 
-    setUser(p: PromiseLike<any>) {
-        p.then((user: any) => {
+    setUser(o: Observable<any>) {
+        o.subscribe((user: any) => {
             this.user = user;
-            console.log('USER:', user);
         });
     }
 
@@ -131,14 +131,12 @@ export class AuthComponent {
     }
 
     logout() {
-        this.setUser(this.auth.logout(document.location.href));
+        this.auth.logout(document.location.href);
     }
 
     profile() {
         if (this.authConfig.profilePagePath) {
             window.location.pathname = this.authConfig.profilePagePath;
-            console.log(window.location.pathname);
-            console.log(window.location.href);
         }
     }
 }
