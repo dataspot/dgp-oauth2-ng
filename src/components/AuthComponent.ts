@@ -83,6 +83,7 @@ import { Observable } from 'rxjs';
     background-color: #FFFFFF;
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
     display: none;
+    z-index: 10;
 }
 
 .widget:hover .menu {
