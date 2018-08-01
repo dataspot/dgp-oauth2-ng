@@ -1,5 +1,5 @@
 import {
-  Component, Inject
+  Component, Inject, Input
 } from '@angular/core';
 import { AuthService,  AUTH_CONFIG_TOKEN} from '../services/auth';
 import { Observable } from 'rxjs';
@@ -108,6 +108,8 @@ import { Observable } from 'rxjs';
 export class AuthComponent {
     private user: any;
 
+    @Input() theme: any;
+
     constructor(private auth: AuthService, 
                 @Inject(AUTH_CONFIG_TOKEN) private authConfig: any) {}
 
@@ -137,7 +139,11 @@ export class AuthComponent {
 
     profile() {
         if (this.authConfig.profilePagePath) {
-            window.location.pathname = this.authConfig.profilePagePath;
+            let params = '';
+            if (this.theme && this.theme.themeId) {
+                params='?theme=' + this.theme.themeId;
+            }
+            window.location.pathname = this.authConfig.profilePagePath + params;
         }
     }
 }
