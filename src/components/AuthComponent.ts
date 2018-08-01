@@ -143,7 +143,7 @@ export class AuthComponent {
             if (this.theme && this.theme.themeId) {
                 params='?theme=' + this.theme.themeId;
             }
-            window.location.pathname = this.authConfig.profilePagePath + params;
+            window.location.href = this.authConfig.profilePagePath + params;
         }
     }
 }
