@@ -40,7 +40,7 @@ import { Observable } from 'rxjs';
     styles: [`
 .widget {
     position: relative;
-    width: 50px;
+    min-width: 50px;
     height: 40px;
     font-weight: 300;
 }
