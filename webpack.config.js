@@ -4,15 +4,10 @@ const path = require('path');
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglify-js-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-  }),
-  new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
-    disable: process.env.NODE_ENV === "development"
   }),
   new HtmlWebpackPlugin({
     template: path.resolve(__dirname, './app/index.html')
@@ -40,12 +35,6 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'awesome-typescript-loader'
-      },
-      {
-        test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          use: [{loader: 'raw-loader'}, {loader: 'less-loader'}]
-        })
       },
       {
         test: /\.html$/,

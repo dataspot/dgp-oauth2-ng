@@ -1,6 +1,7 @@
 import {Injectable, InjectionToken, Inject} from '@angular/core';
 import { Http, URLSearchParams } from "@angular/http";
 import { BehaviorSubject,Observable } from 'rxjs';
+import { map, filter, first, switchMap } from 'rxjs/operators';
 
 
 export const AUTH_CONFIG_TOKEN = new InjectionToken('Auth Config');
@@ -97,10 +98,12 @@ export class AuthService {
         }
         let resp = this.http
             .get(this.authServerUrl + '/auth/check?jwt=' + (jwt ? jwt : '') + '&next=' + encodeURIComponent(next))
-            .map(res => {                
-                let user = res.json();
-                return user;
-            });
+            .pipe(
+                map(res => {                
+                    let user = res.json();
+                    return user;
+                }),
+            );
         resp.subscribe((user) => {
             this.user.next(user);
         });
@@ -114,11 +117,13 @@ export class AuthService {
 
     permission(service: string): Observable<any> {
         return this.jwt
-            .filter((token) => token !== null)
-            .switchMap((token) => 
-                this.http.get(this.authServerUrl + '/auth/authorize?service=' + service + '&jwt=' + token)
-            )
-            .map((response) => response.json())
-            .first();
+            .pipe(
+                filter((token) => token !== null),
+                switchMap((token) => 
+                   this.http.get(this.authServerUrl + '/auth/authorize?service=' + service + '&jwt=' + token)
+                ),
+                map((response) => response.json()),
+                first()
+            );
     }
 }
