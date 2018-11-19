@@ -1,1 +1,1 @@
-export { AuthService, getAuthServiceConfigProvider } from './auth'
+export { AuthService, getAuthServiceConfigProvider, AUTH_CONFIG_TOKEN } from './auth'
