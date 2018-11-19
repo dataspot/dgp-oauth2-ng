@@ -1,6 +1,6 @@
 {
   "name": "budgetkey-ng2-auth",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -15,19 +15,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "awesome-typescript-loader": "^5.2.1",
-    "html-webpack-plugin": "^3.2.0",
-    "less": "^3.8.1",
-    "less-loader": "^4.1.0",
-    "less-plugin-clean-css": "^1.5.1",
-    "raw-loader": "^0.5.1",
-    "style-loader": "^0.23.1",
-    "typescript": "^3.1.6",
-    "uglify-js-plugin": "0.0.6",
-    "webpack": "^4.25.1",
-    "webpack-dev-server": "^3.1.10"
-  },
-  "dependencies": {
     "@angular/animations": "^7.0.3",
     "@angular/common": "^7.0.3",
     "@angular/compiler": "^7.0.3",
@@ -39,12 +26,25 @@
     "@angular/platform-browser-dynamic": "^7.0.3",
     "@angular/platform-server": "^7.0.3",
     "@angular/router": "^7.0.3",
+    "awesome-typescript-loader": "^5.2.1",
     "bluebird": "^3.5.3",
     "core-js": "^2.5.7",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "less-plugin-clean-css": "^1.5.1",
     "lodash": "^4.17.11",
     "node-fetch": "^2.2.1",
+    "raw-loader": "^0.5.1",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.1.6",
+    "uglify-js-plugin": "0.0.6",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
     "zone.js": "^0.8.26"
-  }
+  },
+  "dependencies": {}
 }
