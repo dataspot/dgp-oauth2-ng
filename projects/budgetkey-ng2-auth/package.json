@@ -1,0 +1,19 @@
+{
+  "name": "budgetkey-ng2-auth",
+  "description": "Authentication service and widget",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OpenBudget/budgetkey-ng2-auth.git"
+  },
+  "author": "Adam Kariv <adam.kariv@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/OpenBudget/budgetkey-ng2-auth/issues"
+  },
+  "homepage": "https://github.com/OpenBudget/budgetkey-ng2-auth"
+}
