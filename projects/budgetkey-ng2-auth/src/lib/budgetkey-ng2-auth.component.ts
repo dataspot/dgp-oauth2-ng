@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthComponent implements OnInit {
     public user: any;
+    private next: string;
 
     @Input() theme: any;
 
@@ -19,7 +20,8 @@ export class AuthComponent implements OnInit {
                 @Inject(AUTH_CONFIG_TOKEN) private authConfig: any) {}
 
     ngOnInit() {
-        this.setUser(this.auth.check(document.location.href));
+        this.next = document.location.href;
+        this.setUser(this.auth.check(this.next));
     }
 
     setUser(o: Observable<any>) {
@@ -30,10 +32,18 @@ export class AuthComponent implements OnInit {
 
     login() {
         if (this.user && this.user.providers) {
-            if (this.user.providers.google) {
-                window.location.href = this.user.providers.google['url'];
-            } else if (this.user.providers.github) {
-                window.location.href = this.user.providers.github['url'];
+            const href = this.user.providers.google || this.user.providers.github;
+            if (href && href.url) {
+                if (document.location.href === this.next) {
+                    window.location.href = href.url;
+                } else {
+                    this.next = document.location.href;
+                    this.auth.check(this.next)
+                        .subscribe((user) => {
+                            this.user = user;
+                            this.login();
+                        });
+                }
             }
         }
     }

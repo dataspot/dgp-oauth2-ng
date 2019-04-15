@@ -1,7 +1,7 @@
 {
   "name": "budgetkey-ng2-auth",
   "description": "Authentication service and widget",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "peerDependencies": {
     "@angular/common": "^7.1.0",
     "@angular/core": "^7.1.0"
