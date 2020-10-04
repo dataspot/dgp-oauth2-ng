@@ -1,7 +1,7 @@
 {
   "name": "dgp-oauth2-ng",
   "description": "Authentication service and widget",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "peerDependencies": {
     "@angular/common": "^10.1.4",
     "@angular/core": "^10.1.4"

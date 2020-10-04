@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
   ],
-  exports: [AuthComponent]
+  exports: [AuthComponent],
+  providers: []
 })
 export class DgpOauth2Module { }

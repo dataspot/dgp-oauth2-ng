@@ -3,26 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, filter, first, switchMap } from 'rxjs/operators';
 
-
-export const AUTH_CONFIG_TOKEN = new InjectionToken('Auth Config');
-
-
-export function getAuthServiceConfigProvider(authServerUrl: string,
-                                             jwtLocalStorageKey = 'jwt',
-                                             jwtQueryParam = 'jwt',
-                                             profilePagePath = '/p/') {
-    return {
-        provide: AUTH_CONFIG_TOKEN,
-        useValue: {
-            authServerUrl: authServerUrl,
-            jwtLocalStorageKey: jwtLocalStorageKey,
-            jwtQueryParam: jwtQueryParam,
-            profilePagePath: profilePagePath
-        }
-    };
-}
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,14 +10,18 @@ export class AuthService {
     private authServerUrl: string;
     private jwtLocalStorageKey: string;
     private jwtQueryParam: string;
+    public profilePagePath: string;
     private user = new BehaviorSubject<any>(null);
     private jwt = new BehaviorSubject<any>(null);
 
-    constructor(private http: HttpClient,
-                @Inject(AUTH_CONFIG_TOKEN) private authConfig: any) {
+    constructor(private http: HttpClient) {
+    }
+
+    configure(authConfig) {
         this.authServerUrl = authConfig.authServerUrl;
         this.jwtLocalStorageKey = authConfig.jwtLocalStorageKey;
         this.jwtQueryParam = authConfig.jwtQueryParam;
+        this.profilePagePath = authConfig.profilePagePath;
     }
 
     /**

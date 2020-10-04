@@ -1,7 +1,7 @@
 import {
   Component, Inject, Input, OnInit
 } from '@angular/core';
-import { AuthService,  AUTH_CONFIG_TOKEN} from './dgp-oauth2-ng.service';
+import { AuthService } from './dgp-oauth2-ng.service';
 import { Observable } from 'rxjs';
 
 
@@ -16,8 +16,7 @@ export class AuthComponent implements OnInit {
 
     @Input() theme: any;
 
-    constructor(private auth: AuthService,
-                @Inject(AUTH_CONFIG_TOKEN) private authConfig: any) {}
+    constructor(private auth: AuthService) {}
 
     ngOnInit() {
         this.next = document.location.href;
@@ -53,12 +52,12 @@ export class AuthComponent implements OnInit {
     }
 
     profile() {
-        if (this.authConfig.profilePagePath) {
+        if (this.auth.profilePagePath) {
             let params = '';
             if (this.theme && this.theme.themeId) {
                 params = '?theme=' + this.theme.themeId;
             }
-            window.location.href = this.authConfig.profilePagePath + params;
+            window.location.href = this.auth.profilePagePath + params;
         }
     }
 }
