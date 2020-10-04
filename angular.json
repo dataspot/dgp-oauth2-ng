@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "budgetkey-ng2-auth-app": {
+    "dgp-oauth2-ng-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/budgetkey-ng2-auth-app",
+            "outputPath": "dist/dgp-oauth2-ng-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "budgetkey-ng2-auth-app:build"
+            "browserTarget": "dgp-oauth2-ng-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "budgetkey-ng2-auth-app:build:production"
+              "browserTarget": "dgp-oauth2-ng-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "budgetkey-ng2-auth-app:build"
+            "browserTarget": "dgp-oauth2-ng-app:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
         }
       }
     },
-    "budgetkey-ng2-auth-app-e2e": {
+    "dgp-oauth2-ng-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "budgetkey-ng2-auth-app:serve"
+            "devServerTarget": "dgp-oauth2-ng-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "budgetkey-ng2-auth-app:serve:production"
+              "devServerTarget": "dgp-oauth2-ng-app:serve:production"
             }
           }
         },
@@ -134,33 +134,33 @@
         }
       }
     },
-    "budgetkey-ng2-auth": {
-      "root": "projects/budgetkey-ng2-auth",
-      "sourceRoot": "projects/budgetkey-ng2-auth/src",
+    "dgp-oauth2-ng": {
+      "root": "projects/dgp-oauth2-ng",
+      "sourceRoot": "projects/dgp-oauth2-ng/src",
       "projectType": "library",
-      "prefix": "budgetkey",
+      "prefix": "dgp",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/budgetkey-ng2-auth/tsconfig.lib.json",
-            "project": "projects/budgetkey-ng2-auth/ng-package.json"
+            "tsConfig": "projects/dgp-oauth2-ng/tsconfig.lib.json",
+            "project": "projects/dgp-oauth2-ng/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/budgetkey-ng2-auth/src/test.ts",
-            "tsConfig": "projects/budgetkey-ng2-auth/tsconfig.spec.json",
-            "karmaConfig": "projects/budgetkey-ng2-auth/karma.conf.js"
+            "main": "projects/dgp-oauth2-ng/src/test.ts",
+            "tsConfig": "projects/dgp-oauth2-ng/tsconfig.spec.json",
+            "karmaConfig": "projects/dgp-oauth2-ng/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/budgetkey-ng2-auth/tsconfig.lib.json",
-              "projects/budgetkey-ng2-auth/tsconfig.spec.json"
+              "projects/dgp-oauth2-ng/tsconfig.lib.json",
+              "projects/dgp-oauth2-ng/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -170,5 +170,8 @@
       }
     }
   },
-  "defaultProject": "budgetkey-ng2-auth-app"
+  "defaultProject": "dgp-oauth2-ng-app",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/budgetkey-ng2-auth",
+  "dest": "../../dist/dgp-oauth2-ng",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

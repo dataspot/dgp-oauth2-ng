@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AuthComponent } from './budgetkey-ng2-auth.component';
+import { AuthComponent } from './dgp-oauth2-ng.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,4 +11,4 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [AuthComponent]
 })
-export class BudgetkeyNg2AuthModule { }
+export class DgpOauth2Module { }

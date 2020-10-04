@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BudgetkeyNg2AuthComponent } from './budgetkey-ng2-auth.component';
+import { DgpOauth2Component } from './dgp-oauth2-ng.component';
 
-describe('BudgetkeyNg2AuthComponent', () => {
-  let component: BudgetkeyNg2AuthComponent;
-  let fixture: ComponentFixture<BudgetkeyNg2AuthComponent>;
+describe('DgpOauth2Component', () => {
+  let component: DgpOauth2Component;
+  let fixture: ComponentFixture<DgpOauth2Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BudgetkeyNg2AuthComponent ]
+      declarations: [ DgpOauth2Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BudgetkeyNg2AuthComponent);
+    fixture = TestBed.createComponent(DgpOauth2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

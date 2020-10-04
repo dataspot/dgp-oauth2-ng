@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "budgetkey",
+      "dgp",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "budgetkey",
+      "dgp",
       "kebab-case"
     ]
   }

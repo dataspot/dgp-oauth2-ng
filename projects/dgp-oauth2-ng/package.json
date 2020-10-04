@@ -1,0 +1,19 @@
+{
+  "name": "dgp-oauth2-ng",
+  "description": "Authentication service and widget",
+  "version": "2.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.1.4",
+    "@angular/core": "^10.1.4"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dataspot/dgp-oauth2-ng.git"
+  },
+  "author": "Adam Kariv <adam.kariv@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/dataspot/dgp-oauth2-ng/issues"
+  },
+  "homepage": "https://github.com/dataspot/dgp-oauth2-ng"
+}

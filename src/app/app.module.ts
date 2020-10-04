@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BudgetkeyNg2AuthModule, getAuthServiceConfigProvider } from 'budgetkey-ng2-auth';
+import { DgpOauth2Module, getAuthServiceConfigProvider } from 'dgp-oauth2-ng';
 
 import { AppComponent } from './app.component';
-import { AuthService } from 'projects/budgetkey-ng2-auth/src/public_api';
+import { AuthService } from 'projects/dgp-oauth2-ng/src/public_api';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { AuthService } from 'projects/budgetkey-ng2-auth/src/public_api';
   ],
   imports: [
     BrowserModule,
-    BudgetkeyNg2AuthModule,
+    DgpOauth2Module,
   ],
   providers: [
     AuthService,

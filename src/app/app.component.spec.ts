@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'budgetkey-ng2-auth-app'`, () => {
+  it(`should have as title 'dgp-oauth2-ng-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('budgetkey-ng2-auth-app');
+    expect(app.title).toEqual('dgp-oauth2-ng-app');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to budgetkey-ng2-auth-app!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to dgp-oauth2-ng-app!');
   });
 });

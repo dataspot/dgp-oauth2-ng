@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "budgetkey-ng2-auth": [
-        "dist/budgetkey-ng2-auth"
+      "dgp-oauth2-ng": [
+        "dist/dgp-oauth2-ng"
       ],
-      "budgetkey-ng2-auth/*": [
-        "dist/budgetkey-ng2-auth/*"
+      "dgp-oauth2-ng/*": [
+        "dist/dgp-oauth2-ng/*"
       ]
     }
   }

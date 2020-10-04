@@ -1,14 +1,14 @@
 import {
   Component, Inject, Input, OnInit
 } from '@angular/core';
-import { AuthService,  AUTH_CONFIG_TOKEN} from './budgetkey-ng2-auth.service';
+import { AuthService,  AUTH_CONFIG_TOKEN} from './dgp-oauth2-ng.service';
 import { Observable } from 'rxjs';
 
 
 @Component({
-    selector: 'budgetkey-ng2-auth',
-    templateUrl: './budgetkey-ng2-auth.component.html',
-    styleUrls: ['./budgetkey-ng2-auth.component.less']
+    selector: 'dgp-oauth2-ng',
+    templateUrl: './dgp-oauth2-ng.component.html',
+    styleUrls: ['./dgp-oauth2-ng.component.less']
 })
 export class AuthComponent implements OnInit {
     public user: any;

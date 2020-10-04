@@ -9,6 +9,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to budgetkey-ng2-auth-app!');
+    expect(page.getTitleText()).toEqual('Welcome to dgp-oauth2-ng-app!');
   });
 });
